@@ -1,45 +1,46 @@
-    pipeline{
-        agent any
-        tools {
-            maven 'Maven'
+         pipeline{
+            agent any
+            tools {
+                maven 'Maven'
+            }
+            stages{
+                stage("Test"){
+                    steps{
+                        bat 'mvn test'
+                        echo "kya bolte potteho"
+                    }
+                    
+                }
+                stage("Build"){
+                    steps{
+                        bat 'mvn package'
+                        echo "kya bolte potteho"
+                    }
+                    
+                }
+                stage("Deploy "){
+                    steps{
+                        echo "kya bolte potteho"
+                    }
+                    
+                }
+                stage("Deploy on prod"){
+                    steps{
+                        echo "kya bolte potteho"
+                    }
+                    
+                }
+            
+            post{
+                always{
+                    echo "========always========"
+                }
+                success{
+                    echo "========pipeline executed successfully ========"
+                }
+                failure{
+                    echo "========pipeline execution failed========"
+                }
+            }
+            }
         }
-        stages{
-            stage("Test"){
-                steps{
-                    bat 'mvn test'
-                    echo "kya bolte potteho"
-                }
-                
-            }
-            stage("Build"){
-                steps{
-                    bat 'mvn package'
-                    echo "kya bolte potteho"
-                }
-                
-            }
-            stage("Deploy "){
-                steps{
-                    echo "kya bolte potteho"
-                }
-                
-            }
-            stage("Deploy on prod"){
-                steps{
-                    echo "kya bolte potteho"
-                }
-                
-            }
-        
-        post{
-            always{
-                echo "========always========"
-            }
-            success{
-                echo "========pipeline executed successfully ========"
-            }
-            failure{
-                echo "========pipeline execution failed========"
-            }
-        }
-    }
