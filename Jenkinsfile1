@@ -1,0 +1,22 @@
+pipeline{
+    agent any
+    stages{
+        stage("echoign msg "){
+            steps{
+                echo "kya bolte potteho"
+            }
+             
+        }
+    }
+    post{
+        always{
+            echo "========always========"
+        }
+        success{
+            echo "========pipeline executed successfully ========"
+        }
+        failure{
+            echo "========pipeline execution failed========"
+        }
+    }
+}
